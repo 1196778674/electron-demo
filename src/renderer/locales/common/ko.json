@@ -1,0 +1,26 @@
+{
+  "public": {
+    "signIn": "로그인",
+    "signUp": "회원가입",
+    "signOut": "로그아웃",
+    "account": "계정",
+    "confirm": "확인",
+    "cancel": "취소",
+    "noList": "데이터 없음",
+    "upPage": "전으로",
+    "downPage": "다음으로"
+  },
+  "product": {
+    "otc": "법화OTC 거래",
+    "spot": "화폐 거래",
+    "hash": "운산력 거래",
+    "lab": "지지대 거래",
+    "swap": "100배 계약 거래",
+    "agent": "파트너",
+    "loan": "담보 대출"
+  },
+  "layouts": {
+    "error": "해당 페이지 존재하지 않습니다. {second}초 남았습니다",
+    "goDefault": "메인 화면으로 돌아가기"
+  }
+}

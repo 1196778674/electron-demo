@@ -1,0 +1,22 @@
+{
+  "public": {
+    "signIn": "登录",
+    "signUp": "注册",
+    "signOut": "退出",
+    "account": "账户",
+    "confirm": "确认",
+    "cancel": "取消",
+    "noList": "暂无数据",
+    "upPage": "上一页",
+    "downPage": "下一页"
+  },
+  "product": {
+    "otc": "法币OTC交易",
+    "spot": "币币交易",
+    "hash": "云算力交易",
+    "lab": "融资融币",
+    "swap": "永续合约",
+    "agent": "经纪人",
+    "loan": "抵押贷款"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "public": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "signOut": "Sign Out",
+    "account": "Account",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "noList": "No Data Available",
+    "upPage": "Previous",
+    "downPage": "Next"
+  },
+  "product": {
+    "otc": "OTC",
+    "spot": "Spot",
+    "hash": "Hash",
+    "lab": "Margin",
+    "swap": "Swaps",
+    "agent": "Broker",
+    "loan": "Mortgage Loan"
+  }
+}

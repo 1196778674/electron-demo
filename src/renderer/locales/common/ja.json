@@ -1,0 +1,26 @@
+{
+  "public":{
+    "signIn": "ログイン",
+    "signUp": "新規登録",
+    "signOut": "ログアウト",
+    "account": "アカウント",
+    "confirm": "確認",
+    "cancel": "キャンセル",
+    "noList": "データなし",
+    "upPage": "前へ",
+    "downPage": "後へ"
+  },
+  "product":{
+    "otc": "法貨OTC取引",
+    "spot": "仮想通貨取引",
+    "hash": "ハッシュ",
+    "lab": "レバーレジ取引",
+    "swap": "百倍永続コントラクト",
+    "agent": "マネージャー",
+    "loan": "担保融資"
+  },
+  "layouts":{
+    "error":"このページは見つかりません、後{second}秒",
+    "goDefault":"ホームに戻す"
+  }
+}

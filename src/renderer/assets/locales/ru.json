@@ -1,0 +1,10 @@
+{
+  "header": {
+    "usdt": "USDT合约",
+    "half": "交割合约",
+    "swaps": "数字合约",
+    "login": "登录",
+    "register": "注册",
+    "center": "个人中心"
+  }
+}

@@ -1,0 +1,20 @@
+let wallet = {
+  title: 'Balance',
+  walletBalance: 'Wallet Balance',
+  walletBalanceTip: 'Wallet Balance= Available Balance + Frozen Margin + Position Margin',
+  marginBalance: 'User Equity',
+  marginBalanceTip: 'Total Swap Equity',
+  userEquity: 'User Equity',
+  userEquityTip: 'Total Swap Equity',
+  ratio: 'Unrealized PNL',
+  ratioTip: 'Total PNL of current open interest',
+  positionMarginValue: 'Position Margin',
+  positionMarginValueTip: 'Open Position Margin',
+  orderHold: 'Order Margin',
+  orderHoldTip: 'The minimum equity you must retain with the exchange to keep your open orders. This is the value of all open orders you have divided by the selected leverage',
+  unRelease: 'Open Interest',
+  unReleaseAmount: 'Open Interest',
+  more: '(Long)',
+  less: '(Short)',
+}
+export default wallet
