@@ -1,7 +1,7 @@
 {
-  "name": "58contract",
+  "name": "contract",
   "version": "1.0.0",
-  "author": "liufei <feiliu@58coin.com>",
+  "author": "liufei",
   "description": "An electron-vue project",
   "license": null,
   "main": "./dist/electron/main.js",
@@ -17,8 +17,8 @@
     "postinstall": ""
   },
   "build": {
-    "productName": "58contract",
-    "appId": "com.58ex.58contract",
+    "productName": "contract",
+    "appId": "com.contract",
     "directories": {
       "output": "build"
     },
