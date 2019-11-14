@@ -3,8 +3,24 @@ import path from 'path';
 class SetHosts {
     constructor(args) {
     }
+    // 获取hosts
+    GET_HOSTS () {
+        return new Promise((resolve, reject) => {
+            fs.readdir(`/etc`, function (err, files) {
+                if (err) {
+                    console.log('readdir:', err);
+                    return;
+                } else {
+                    let filedir = path.join('/etc/', 'hosts');
+                    fs.readFile(filedir, 'utf8', function (err, data) {
+                        resolve(data)
+                    })
+                }
+            })
+        });
+    }
     // 设置hosts
-    SET_HOSTS() {
+    SET_HOSTS(ip) {
         // 替换ip mac
         fs.readdir(`/etc`, function (err, files) {
             if (err) {
@@ -18,10 +34,12 @@ class SetHosts {
                     } else {
                         let newContent = '';
                         // console.log(data);
-                        if (data.indexOf('47.52.165.55') === -1) {
-                            newContent = `${data}\n47.52.165.55 api.58coin.com\n47.52.165.55 swapapi.58coin.com\n47.52.165.55 usdtfuture.58coin.com\n47.52.165.55 www.58coin.com`
-                        } else if (data.indexOf('47.52.165.55') > -1 && false) {
-                            newContent = data.replace(/47.52.165.55/g, `47.52.28.55`);
+                        let domain = '58ex.com'
+                        if (data.indexOf('47.52.165.55') === -1 && data.indexOf('47.52.28.46') === -1) {
+                            newContent = `${data}\n47.52.165.55 api.${domain}\n47.52.165.55 swapapi.${domain}\n47.52.165.55 usdtfuture.${domain}\n47.52.165.55 www.${domain}`
+                        } else {
+                            let oldIp = data.indexOf('47.52.165.55') > -1 ? '47.52.165.55' : '47.52.28.46'
+                            newContent = data.replace(new RegExp(`${oldIp}`,"g"), ip);
                         }
                         !!newContent && fs.writeFile(filedir, newContent, 'utf8', (err) => {
                             if (err) throw err;
