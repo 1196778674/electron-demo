@@ -1,8 +1,5 @@
 <template>
   <div id="view">
-    <!-- <lf-header></lf-header>
-    <router-view id="container"></router-view>
-    <lf-footer :product="product"></lf-footer> -->
     <button @click="changeFun">切换IP</button>
   </div>
 </template>
@@ -25,6 +22,7 @@ export default {
       this.hosts.GET_HOSTS().then(data => {
         let ip = data.indexOf('47.52.165.55') === -1 ? '47.52.165.55' : '47.52.28.46'
         this.hosts.SET_HOSTS(ip);
+        // window.alert(JSON.stringify(data))
       })
     }
   }
