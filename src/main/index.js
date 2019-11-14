@@ -3,7 +3,7 @@ import '../renderer/store'
 import SetHosts from '../renderer/assets/plugins/sethosts';
 
 const hosts = new SetHosts()
-hosts.SET_HOSTS();
+// hosts.SET_HOSTS();
 /**
  * Set `__static` path to static files in production
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-static-assets.html
@@ -12,11 +12,18 @@ if (process.env.NODE_ENV !== 'development') {
   global.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
 }
 
+// 禁用缓存
+// app.commandLine.appendSwitch("--disable-http-cache");
+// 设置解析地址
+// app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.baidu.com;*.aliyun.com;0.0.0.0:9080')
+app.commandLine.appendSwitch('proxy-server', '182.61.200.7:443');
+// app.commandLine.appendSwitch('host-rules', 'MAP *.58ex.com proxy');
+
 let mainWindow;
-let childWindow;
-const winURL = process.env.NODE_ENV === 'development'
-  ? `http://0.0.0.0:9080`
-  : `file://${__dirname}/index.html`
+// const winURL = process.env.NODE_ENV === 'development'
+//   ? `http://0.0.0.0:9080`
+//   : `file://${__dirname}/index.html`
+const winURL = 'https://58ex.com'
 
 function createWindow() {
   /**
@@ -39,7 +46,9 @@ function createWindow() {
     mainWindow.show()
   })
   // 屏幕最大化
-  mainWindow.maximize();
+  setTimeout(() => {
+    mainWindow.maximize();
+  }, 0);
   // 禁止缩放
   const webContents = mainWindow.webContents;
   webContents.on('did-finish-load', () => {

@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import axios from 'axios'
 import qs from 'qs'
-import apiConfig from '../../assets/myConfig/api.config'
 import Cookie from '../../assets/myConfig/cookie'
 import ApiConfig from '../../assets/myConfig/api.config'
 
@@ -23,7 +22,7 @@ function getCookie(cookie, cookieName) {
 }
 
 const service = axios.create({
-  baseURL: apiConfig.futureURL
+  baseURL: ApiConfig.baseURL
 })
 
 // 拦截器

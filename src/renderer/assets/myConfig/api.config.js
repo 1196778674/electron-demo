@@ -1,4 +1,4 @@
-const domain = '58coin.com'
+const domain = '58ex.com'
 export default {
   // cookie domain
   domain,

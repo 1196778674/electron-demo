@@ -13,7 +13,7 @@ const ToolsApi = {
    * 获取带小数参数的合约列表
    * **/
   getContractAllList() {
-    return axios.post('/contract/with/param/list')
+    return axios.post('/tools/dict/product/list')
   },
 }
 
