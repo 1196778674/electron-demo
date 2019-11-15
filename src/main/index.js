@@ -19,10 +19,8 @@ function createWindow() {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
-    height: 563,
-    useContentSize: true,
-    width: 1000,
-    show: true
+    title:'58COIN交易平台',
+    center: true,
   })
 
 
@@ -45,6 +43,7 @@ function createWindow() {
     webContents.setVisualZoomLevelLimits(1, 1);
     webContents.setLayoutZoomLevelLimits(0, 0);
   })
+  // mainWindow.setMenu()
 }
 
 app.on('ready', createWindow)
