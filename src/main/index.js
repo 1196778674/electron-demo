@@ -23,7 +23,6 @@ function createWindow() {
     center: true,
   })
 
-
   mainWindow.loadURL(winURL)
 
   mainWindow.on('closed', () => {
@@ -38,12 +37,12 @@ function createWindow() {
   }, 0);
   // 禁止缩放
   const webContents = mainWindow.webContents;
-  webContents.on('did-finish-load', () => {
+  webContents.on('did-finish-load', (event) => {
     webContents.setZoomFactor(1);
     webContents.setVisualZoomLevelLimits(1, 1);
     webContents.setLayoutZoomLevelLimits(0, 0);
+
   })
-  // mainWindow.setMenu()
 }
 
 app.on('ready', createWindow)

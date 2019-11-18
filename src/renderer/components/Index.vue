@@ -8,10 +8,11 @@
 
 <script>
 import { remote } from 'electron'
+const { Menu, MenuItem, BrowserWindow, app } = remote
 import SetHosts from '../assets/plugins/sethosts';
 import LfHeader from "./component/header/header";
 import LfFooter from "./component/footer/footer";
-const { Menu, MenuItem } = remote
+import createWindow from '../../../static/js/CreateWindow'
 export default {
   name: "Index",
   components: {
@@ -41,17 +42,36 @@ export default {
   },
   methods: {
     changeFun: function () {
+      const CurrentWindow = remote.getCurrentWebContents()
       this.hosts.GET_HOSTS().then(data => {
         let ip = data.indexOf('47.52.165.55') === -1 ? '47.52.165.55' : '47.52.28.46'
         this.hosts.SET_HOSTS(ip);
-        window.alert(JSON.stringify(data))
       })
     }
   },
   mounted() {
+    // 添加右键事件
     const _self = this;
     const menu = new Menu()
+    const CurrentWindow = remote.getCurrentWebContents()
+    menu.append(new MenuItem({ label: 'remote', click() { console.log(remote) } }))
+    menu.append(new MenuItem({ label: '自带方法', click() { console.log(CurrentWindow) } }))
     menu.append(new MenuItem({ label: '切换线路', click() { _self.changeFun() } }))
+    menu.append(new MenuItem({ label: '刷新', click() { CurrentWindow.reload() } }))
+    menu.append(new MenuItem({ label: '方法', click() { 
+      // setTimeout(() => {
+      //   CurrentWindow.destroy()
+      // }, 1000);
+      let win = new createWindow();
+      app.on('ready', win.create(CurrentWindow.getURL()))
+      app.on('window-all-closed', () => {
+        if (process.platform !== 'darwin') {
+          app.quit();
+        }
+      })
+
+    } }))
+    
     window.addEventListener('contextmenu', (e) => {
       e.preventDefault()
       menu.popup({ window: remote.getCurrentWindow() })
