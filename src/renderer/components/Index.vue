@@ -12,7 +12,6 @@ const { Menu, MenuItem, BrowserWindow, app } = remote
 import SetHosts from '../assets/plugins/sethosts';
 import LfHeader from "./component/header/header";
 import LfFooter from "./component/footer/footer";
-import createWindow from '../../../static/js/CreateWindow'
 export default {
   name: "Index",
   components: {
@@ -58,24 +57,6 @@ export default {
     menu.append(new MenuItem({ label: '自带方法', click() { console.log(CurrentWindow) } }))
     menu.append(new MenuItem({ label: '切换线路', click() { _self.changeFun() } }))
     menu.append(new MenuItem({ label: '刷新', click() { CurrentWindow.reload() } }))
-    menu.append(new MenuItem({ label: '方法', click() { 
-      // setTimeout(() => {
-      //   CurrentWindow.destroy()
-      // }, 1000);
-      let win = new createWindow();
-      app.on('ready', win.create(CurrentWindow.getURL()))
-      app.on('window-all-closed', () => {
-        if (process.platform !== 'darwin') {
-          app.quit();
-        }
-      })
-
-    } }))
-    
-    window.addEventListener('contextmenu', (e) => {
-      e.preventDefault()
-      menu.popup({ window: remote.getCurrentWindow() })
-    }, false)
   },  
 };
 </script>
