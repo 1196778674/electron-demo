@@ -20,13 +20,7 @@ export default {
       headerApi
         .getContractAllList()
         .then(res => {
-          let arr = res.data.contractList || [];
-          arr = Filter.reRepeatArr(arr, "id");
-          arr.forEach(item => {
-            if (!item.contractParam) {
-              item.contractParam = {};
-            }
-          });
+          let arr = res.data.productList || [];
           this.list = arr;
         })
         .catch(err => {

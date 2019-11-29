@@ -8,7 +8,7 @@
 
 <script>
 import { remote } from 'electron'
-const { Menu, MenuItem, BrowserWindow, app } = remote
+const { Menu, MenuItem, BrowserWindow, app, session } = remote
 import SetHosts from '../assets/plugins/sethosts';
 import LfHeader from "./component/header/header";
 import LfFooter from "./component/footer/footer";
@@ -49,7 +49,7 @@ export default {
     }
   },
   mounted() {
-    // 添加右键事件
+    // 添加右键事件 start
     const _self = this;
     const menu = new Menu()
     const CurrentWindow = remote.getCurrentWebContents()
@@ -57,6 +57,14 @@ export default {
     menu.append(new MenuItem({ label: '自带方法', click() { console.log(CurrentWindow) } }))
     menu.append(new MenuItem({ label: '切换线路', click() { _self.changeFun() } }))
     menu.append(new MenuItem({ label: '刷新', click() { CurrentWindow.reload() } }))
+    
+    window.addEventListener('contextmenu', (e) => {
+      e.preventDefault()
+      menu.popup({ window: remote.getCurrentWindow() })
+    }, false)
+    // 添加右键事件 end
+
+
   },  
 };
 </script>
