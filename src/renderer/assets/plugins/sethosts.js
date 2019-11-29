@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from 'path';
+import apiConfig from '../myConfig/api.config'
 class SetHosts {
     constructor(args) {
     }
@@ -34,7 +35,7 @@ class SetHosts {
                     } else {
                         let newContent = '';
                         // console.log(data);
-                        let domain = '58ex.com'
+                        let domain = `${apiConfig.domain}`
                         if (data.indexOf('47.52.165.55') === -1 && data.indexOf('47.52.28.46') === -1) {
                             newContent = `${data}\n47.52.165.55 api.${domain}\n47.52.165.55 swapapi.${domain}\n47.52.165.55 usdtfuture.${domain}\n47.52.165.55 www.${domain}`
                         } else {
