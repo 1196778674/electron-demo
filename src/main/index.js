@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain } from 'electron'
+import { app, BrowserWindow, ipcMain, session } from 'electron'
 import '../renderer/store'
 
 /**
@@ -42,18 +42,29 @@ function createWindow() {
     webContents.setZoomFactor(1);
     webContents.setVisualZoomLevelLimits(1, 1);
     webContents.setLayoutZoomLevelLimits(0, 0);
-
   })
+  
 }
 
-// 代理
-function SET_PROXY () {
-  const ip = `23.102.75.168:443`
-  app.commandLine.appendSwitch('proxy-server', ip)
-  app.commandLine.appendSwitch('proxy-bypass-list', '<local>;0.0.0.0:9080')
-}
-
-SET_PROXY()
+// 监听客户端信息
+let index = 0
+ipcMain.on('message', (event, arg) => {
+  const ips = ['23.102.75.168:443']
+  if(arg === 'setProxy') {
+    const ses = session.defaultSession
+    ses.setProxy(`https=${ips[index]}`, function() {
+        console.log('done proxy kind of things');
+    });
+    if(index === ips.length - 1) {
+      index = 0
+    } else {
+      index++
+    }
+  } else {
+    app.relaunch();
+    app.exit();
+  }
+})
 
 app.on('ready', createWindow)
 
@@ -67,12 +78,6 @@ app.on('activate', () => {
   if (mainWindow === null) {
     createWindow()
   }
-})
-
-
-ipcMain.on('message', (event, arg) => {
-  app.relaunch();
-  app.exit(0);
 })
 
 

@@ -59,12 +59,18 @@ export default {
     menu.append(new MenuItem({ label: '重新加载', click() { 
       CurrentWindow.reload()
     } }))
+    menu.append(new MenuItem({ label: '一键加速', click() { 
+      ipcRenderer.send('message', 'setProxy')
+      setTimeout(() => {
+        CurrentWindow.reload()
+      }, 0);
+    } }))
     menu.append(new MenuItem({ label: '切换线路IP', click() { 
       _self.changeFun()
       ipcRenderer.send('message', 'changeIp')
     } }))
     menu.append(new MenuItem({ label: '重启应用', click() { 
-      ipcRenderer.send('message', 'realod')
+      ipcRenderer.send('message', 'restart')
     } }))
     
     window.addEventListener('contextmenu', (e) => {
