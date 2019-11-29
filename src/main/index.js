@@ -53,11 +53,9 @@ function SET_PROXY () {
   app.commandLine.appendSwitch('proxy-bypass-list', '<local>;0.0.0.0:9080')
 }
 
-// SET_PROXY()
+SET_PROXY()
 
-setTimeout(() => {
-  app.on('ready', createWindow)
-}, 0);
+app.on('ready', createWindow)
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
