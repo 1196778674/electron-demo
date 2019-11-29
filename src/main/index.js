@@ -1,5 +1,6 @@
 import { app, BrowserWindow, ipcMain } from 'electron'
 import '../renderer/store'
+
 /**
  * Set `__static` path to static files in production
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-static-assets.html
@@ -46,11 +47,17 @@ function createWindow() {
 }
 
 // 代理
-const ips = ['23.102.75.168:443', '118.190.146.43:443']
-app.commandLine.appendSwitch('proxy-server', ips[0])
-app.commandLine.appendSwitch('proxy-bypass-list', '<local>;0.0.0.0:9080')
+function SET_PROXY () {
+  const ip = `23.102.75.168:443`
+  app.commandLine.appendSwitch('proxy-server', ip)
+  app.commandLine.appendSwitch('proxy-bypass-list', '<local>;0.0.0.0:9080')
+}
 
-app.on('ready', createWindow)
+// SET_PROXY()
+
+setTimeout(() => {
+  app.on('ready', createWindow)
+}, 0);
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
@@ -65,9 +72,9 @@ app.on('activate', () => {
 })
 
 
-// 自添加方法
-ipcMain.on('openList', function (event, args) {
-  console.log('args', args);
+ipcMain.on('message', (event, arg) => {
+  app.relaunch();
+  app.exit(0);
 })
 
 

@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import { remote } from 'electron'
-const { Menu, MenuItem, BrowserWindow, app, session } = remote
+import { remote, ipcRenderer } from 'electron'
+const { Menu, MenuItem } = remote
 import SetHosts from '../assets/plugins/sethosts';
 import LfHeader from "./component/header/header";
 import LfFooter from "./component/footer/footer";
@@ -53,17 +53,25 @@ export default {
     const _self = this;
     const menu = new Menu()
     const CurrentWindow = remote.getCurrentWebContents()
-    menu.append(new MenuItem({ label: 'remote', click() { console.log(remote) } }))
-    menu.append(new MenuItem({ label: '自带方法', click() { console.log(CurrentWindow) } }))
-    menu.append(new MenuItem({ label: '切换线路', click() { _self.changeFun() } }))
-    menu.append(new MenuItem({ label: '刷新', click() { CurrentWindow.reload() } }))
+    menu.append(new MenuItem({ label: '返回', click() { 
+      CurrentWindow.goBack(-1)
+    } }))
+    menu.append(new MenuItem({ label: '重新加载', click() { 
+      CurrentWindow.reload()
+    } }))
+    menu.append(new MenuItem({ label: '切换线路IP', click() { 
+      _self.changeFun()
+      ipcRenderer.send('message', 'changeIp')
+    } }))
+    menu.append(new MenuItem({ label: '重启应用', click() { 
+      ipcRenderer.send('message', 'realod')
+    } }))
     
     window.addEventListener('contextmenu', (e) => {
       e.preventDefault()
       menu.popup({ window: remote.getCurrentWindow() })
     }, false)
     // 添加右键事件 end
-
 
   },  
 };
