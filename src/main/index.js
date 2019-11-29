@@ -45,6 +45,11 @@ function createWindow() {
   })
 }
 
+// 代理
+const ips = ['23.102.75.168:443', '118.190.146.43:443']
+app.commandLine.appendSwitch('proxy-server', ips[0])
+app.commandLine.appendSwitch('proxy-bypass-list', '<local>;0.0.0.0:9080')
+
 app.on('ready', createWindow)
 
 app.on('window-all-closed', () => {
