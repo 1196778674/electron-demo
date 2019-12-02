@@ -53,7 +53,7 @@ ipcMain.on('message', (event, arg) => {
   if(arg === 'setProxy') {
     const ses = session.defaultSession
     ses.setProxy(`https=${ips[index]}`, function() {
-        console.log('done proxy kind of things');
+        console.log('加速成功！');
     });
     if(index === ips.length - 1) {
       index = 0
