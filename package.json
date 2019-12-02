@@ -1,9 +1,9 @@
 {
-  "name": "contract",
+  "name": "58COIN",
   "version": "1.0.0",
   "author": "liufei",
-  "description": "An electron-vue project",
-  "license": null,
+  "description": "58COIN-USDT合约",
+  "license": "ISC",
   "main": "./dist/electron/main.js",
   "scripts": {
     "build": "node .electron-vue/build.js && electron-builder",
@@ -14,14 +14,33 @@
     "pack": "npm run pack:main && npm run pack:renderer",
     "pack:main": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.main.config.js",
     "pack:renderer": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.renderer.config.js",
-    "postinstall": ""
+    "postinstall": "",
+    "all": "node .electron-vue/build.js && electron-builder -mwl"
   },
   "build": {
-    "productName": "contract",
-    "appId": "com.contract",
+    "productName": "58COIN",
+    "appId": "com.contract.usdt",
     "directories": {
       "output": "build"
     },
+    "nsis": {
+      "oneClick": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "build/icons/icon.ico",
+      "uninstallerIcon": "build/icons/icon.ico",
+      "installerHeaderIcon": "build/icons/icon.ico", 
+      "createDesktopShortcut": true, 
+      "createStartMenuShortcut": true,
+      "shortcutName": "58COIN",
+      "include": "build/script/installer.nsh"
+    },
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "https://github.com/1196778674/electron-demo"
+      }
+    ],
     "files": [
       "dist/electron/**/*"
     ],
@@ -44,7 +63,15 @@
       "icon": "build/icons/icon.icns"
     },
     "win": {
-      "icon": "build/icons/icon.ico"
+      "icon": "build/icons/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "ia32"
+          ]
+        }
+      ]
     },
     "linux": {
       "icon": "build/icons"
