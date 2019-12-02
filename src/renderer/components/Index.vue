@@ -8,7 +8,6 @@
 
 <script>
 import MenuItem from '../assets/plugins/menuItem'
-import SetHosts from '../assets/plugins/sethosts';
 import LfHeader from "./component/header/header";
 import LfFooter from "./component/footer/footer";
 export default {
@@ -19,7 +18,6 @@ export default {
   },
   data() {
     return {
-      hosts: new SetHosts(),
       product: [
         { name: this.$t("message.header.usdtTrade"), href: "javascript:;" },
         { name: this.$t("message.header.trade"), href: "javascript:;" },
@@ -39,13 +37,7 @@ export default {
       }
   },
   methods: {
-    changeFun: function () {
-      const CurrentWindow = remote.getCurrentWebContents()
-      this.hosts.GET_HOSTS().then(data => {
-        let ip = data.indexOf('47.52.165.55') === -1 ? '47.52.165.55' : '47.52.28.46'
-        this.hosts.SET_HOSTS(ip);
-      })
-    }
+    
   },
   mounted() {
     MenuItem()
