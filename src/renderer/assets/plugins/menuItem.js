@@ -1,5 +1,6 @@
 import { remote, ipcRenderer } from 'electron'
 const { Menu, MenuItem } = remote
+import os from 'os'
 import SetHosts from './sethosts';
 export default NenuItem => {
     const menu = new Menu()
@@ -16,10 +17,9 @@ export default NenuItem => {
         CurrentWindow.reload()
       }, 0);
     } }))
-    menu.append(new MenuItem({ label: '切换线路IP', click() { 
-      changeFun()
-      ipcRenderer.send('message', 'changeIp')
-    } }))
+    // os.platform() === 'darwin' && menu.append(new MenuItem({ label: '切换IP(会重启)', click() { 
+    //   changeFun()
+    // } }))
     // menu.append(new MenuItem({ label: '重启应用', click() { 
     //   ipcRenderer.send('message', 'restart')
     // } }))
@@ -33,7 +33,7 @@ export default NenuItem => {
 function changeFun () {
   const hosts = new SetHosts()
   hosts.GET_HOSTS().then(data => {
-    let ip = data.indexOf('47.52.165.55') === -1 ? '47.52.165.55' : '47.52.28.46'
+    let ip = !data.includes('47.52.165.55') ? '47.52.165.55' : '47.52.28.46'
     hosts.SET_HOSTS(ip);
   })
 }

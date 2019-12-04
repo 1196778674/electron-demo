@@ -1,9 +1,9 @@
 {
   "name": "58COIN",
   "version": "1.0.0",
-  "author": "liufei",
+  "author": "58COIN",
   "description": "58COIN-USDT合约",
-  "license": "ISC",
+  "license": null,
   "main": "./dist/electron/main.js",
   "scripts": {
     "build": "node .electron-vue/build.js && electron-builder && electron-builder --win --ia32",
@@ -14,7 +14,8 @@
     "pack": "npm run pack:main && npm run pack:renderer",
     "pack:main": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.main.config.js",
     "pack:renderer": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.renderer.config.js",
-    "postinstall": ""
+    "postinstall": "",
+    "win": "node .electron-vue/build.js && electron-builder --win --ia32"
   },
   "build": {
     "productName": "58COIN",
@@ -31,8 +32,7 @@
       "installerHeaderIcon": "build/icons/icon.ico",
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "58COIN",
-      "include": "build/script/installer.nsh"
+      "shortcutName": "58COIN"
     },
     "publish": [
       {
@@ -101,6 +101,7 @@
     "babili-webpack-plugin": "^0.1.2",
     "cfonts": "^2.1.2",
     "chalk": "^2.4.1",
+    "cheerio": "^1.0.0-rc.3",
     "copy-webpack-plugin": "^4.5.1",
     "cross-env": "^5.1.6",
     "css-loader": "^0.28.11",
