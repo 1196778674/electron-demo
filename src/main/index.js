@@ -20,8 +20,10 @@ function createWindow() {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
+    width: 1280,
+    height: 760,
     title:'58COIN交易平台',
-    center: true,
+    center: true
   })
 
   mainWindow.loadURL(winURL)
@@ -34,7 +36,7 @@ function createWindow() {
   })
   // 屏幕最大化
   setTimeout(() => {
-    mainWindow.maximize();
+    // mainWindow.maximize();
   }, 0);
   // 禁止缩放
   const webContents = mainWindow.webContents;
