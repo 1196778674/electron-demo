@@ -11,7 +11,7 @@ export default new Router({
     component: require('@/components/Index').default,
     children: [{
       path: '/',
-      component: require('@/components/Index/swap').default
+      component: require('@/components/Index/usdt').default
     }, {
       path: '/usdt',
       name: 'usdt',

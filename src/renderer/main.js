@@ -89,11 +89,6 @@ const i18n = new VueI18n({
 import Row from '../renderer/assets/plugins/st-ui/row'
 Vue.use(Row)
 
-// 语言切换
-import Language from '../renderer/assets/plugins/language'
-Vue.use(Language)
-
-
 // 初始化请求
 import axios from '../renderer/assets/plugins/axiosConfig'
 
@@ -130,7 +125,7 @@ Vue.http = Vue.prototype.$http = axios
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
-new Vue({
+window.v = new Vue({
   components: { App },
   router,
   store,

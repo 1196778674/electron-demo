@@ -1,5 +1,8 @@
 <template>
-  <div>{{list}}{{list}}</div>
+  <div>
+    <h1>{{$t('message.header.usdtTrade')}}</h1>
+    {{list}}
+  </div>
 </template>
 
 <script>

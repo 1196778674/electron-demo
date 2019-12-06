@@ -2,9 +2,11 @@ import { remote, ipcRenderer } from 'electron'
 const { Menu, MenuItem } = remote
 import os from 'os'
 import SetHosts from './sethosts';
+import Cookie from "../myConfig/cookie";
 export default NenuItem => {
     const menu = new Menu()
     const CurrentWindow = remote.getCurrentWebContents()
+    const langs = [{label: '中文简体', lang: 'cn'}, {label: 'English', lang: 'en'}, {label: '한국어', lang: 'ko'}, {label: '日本語', lang: 'ja'}, {label: 'Русский', lang: 'ru'}]
     menu.append(new MenuItem({ label: '返回', click() { 
       CurrentWindow.goBack(-1)
     } }))
@@ -17,13 +19,14 @@ export default NenuItem => {
         CurrentWindow.reload()
       }, 0);
     } }))
-    // os.platform() === 'darwin' && menu.append(new MenuItem({ label: '切换IP(会重启)', click() { 
-    //   changeFun()
-    // } }))
-    // menu.append(new MenuItem({ label: '重启应用', click() { 
-    //   ipcRenderer.send('message', 'restart')
-    // } }))
-    
+    // 设置多语言
+    menu.append(new MenuItem({ label: '多语言切换', submenu: langs.map(v => {
+      return {'click': function(){
+        Cookie.setCookie("locale", v.lang, "", "/")
+        this.v.$i18n.locale = v.lang
+      }, 'label': v.label}
+    }) }))
+    // 添加右键
     window.addEventListener('contextmenu', (e) => {
       e.preventDefault()
       menu.popup({ window: remote.getCurrentWindow() })

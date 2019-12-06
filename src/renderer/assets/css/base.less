@@ -1,27 +1,106 @@
-@import url('./iconfont/iconfont.css');
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  font-family: 'Helvetica Neue', Helvetica, Tahoma, Arial, 'PingFang SC',
+    'Hiragino Sans GB', 'Heiti SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei',
+    sans-serif;
+  user-select: none;
+}
 
-html,
-body,
-div,
-ul,
-li,
-p,
+input {
+  user-select: text;
+  outline: none;
+}
+div[tabindex],span[tabindex] {
+  outline: none;
+}
+
+html {
+  height: 100%;
+}
+body {
+  position: relative;
+  min-height: 100%;
+  background: #0e1524;
+}
+
+img {
+  display: block;
+}
+
 a {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    font-family: 'PingFangSC-Regular,Microsoft YaHei,Helvetica Neue,Helvetica,Tahoma,Arial,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif';
-
+  text-decoration: none;
+  cursor: pointer;
 }
 
-html,
-body,
-#app,
-#view {
-    height: 100%;
+input {
+  border: none;
+  appearance: none;
+  outline: none;
+  box-shadow: none;
 }
 
-#container {
-    min-height: 100%;
-    margin-bottom: -210px;
+button {
+  outline: none;
 }
+
+textarea {
+  outline: none;
+  resize: none;
+}
+
+ul,
+ol,
+li,
+em {
+  list-style: none;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+.toast {
+  padding: 5px 10px;
+}
+.toast .text {
+  color: #fff;
+}
+
+.mark {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99998;
+}
+
+.lock-scroll {
+  overflow: hidden;
+}
+
+.iframePointerNone {
+  pointer-events: none;
+}
+
+.black {
+  .mark {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+.white {
+  .mark {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+}
+
