@@ -1,6 +1,5 @@
 <template>
   <div class="usdt-fullscreen" id='usdt-fullscreen'>
-    <h1>{{$t('message.header.usdtTrade')}}</h1>
     <Header></Header>
   </div>
 </template>

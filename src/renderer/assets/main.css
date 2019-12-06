@@ -1,0 +1,18 @@
+/* .page-enter-active, .page-leave-active {
+  transition: transform .3s;
+}
+.page-enter, .page-leave-active {
+  transform: scale(0.4);
+} */
+.trade-enter-active, .trade-leave-active {
+  transition: transform .3s;
+}
+.trade-enter, .trade-leave-active {
+  transform: scale(0.4);
+}
+.full-enter-active, .full-leave-active {
+  transition: transform .3s;
+}
+.full-enter, .full-leave-active {
+  transform: scale(0.4);
+}
