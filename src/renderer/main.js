@@ -5,7 +5,7 @@ import router from './router'
 import store from './store'
 
 // api
-import Api from './assets/plugins/api'
+import Api from './assets/js/api'
 Vue.use(Api)
 
 // cookie

@@ -1,14 +1,28 @@
-/**
- * The file enables `@/store/index.js` to import all vuex modules
- * in a one-shot manner. There should not be any reason to edit this file.
- */
-
-const files = require.context('.', false, /\.js$/)
-const modules = {}
-
-files.keys().forEach(key => {
-  if (key === './index.js') return
-  modules[key.replace(/(\.\/|\.js)/g, '')] = files(key).default
+const state = () => ({
+  domain: null,
+  tab: true,
+  keyOrder: true,
 })
 
-export default modules
+const mutations = {
+  SET_DOMAIN(state, domain) {
+    state.domain = domain
+  },
+  SET_TAB_STATUS(state, data) {
+    state.tab = data
+  },
+  SET_KEY_ORDER(state, data) {
+    state.keyOrder = data
+  },
+}
+
+const actions = {
+  // nuxtServerInit({commit}, {req}) {
+  //   commit('SET_DOMAIN', req.headers.host)
+  // }
+}
+export default {
+  state,
+  mutations,
+  actions
+}

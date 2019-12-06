@@ -16,5 +16,5 @@ let wallet = {
   unReleaseAmount: 'Open Interest',
   more: '(Long)',
   less: '(Short)',
-}
+};
 export default wallet

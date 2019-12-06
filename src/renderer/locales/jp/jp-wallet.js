@@ -16,5 +16,5 @@ let wallet = {
   unReleaseAmount: '建玉高',
   less: 'ショート',
   more: 'ロング'
-}
+};
 export default wallet

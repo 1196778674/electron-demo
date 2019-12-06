@@ -231,6 +231,6 @@ let guide = {
     tbodyList2: []
   }
 
-}
+};
 export default guide
 

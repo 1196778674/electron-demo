@@ -504,5 +504,5 @@ let reference = {
         p3: 'Trade Examples',
       }
     }
-  }
+};
 export default reference

@@ -30,5 +30,5 @@ let entrust = {
     less: 'ショート',
     more: 'ロング'
   }
-}
+};
 export default entrust

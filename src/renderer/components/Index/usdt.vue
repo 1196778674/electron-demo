@@ -1,13 +1,12 @@
 <template>
-  <div>
+  <div class="usdt-fullscreen" id='usdt-fullscreen'>
     <h1>{{$t('message.header.usdtTrade')}}</h1>
-    {{list}}
+    <Header></Header>
   </div>
 </template>
 
 <script>
-import headerApi from "@/assets/js/api/headerApi";
-import Filter from "../../assets/js/filter";
+import Header from '../component/fullscreen/Header'
 export default {
   name: "usdt",
   data() {
@@ -15,21 +14,14 @@ export default {
       list: []
     };
   },
+  components: {
+    Header,
+  },
   created() {
-    this.GET_LIST();
+    
   },
   methods: {
-    GET_LIST() {
-      headerApi
-        .getContractAllList()
-        .then(res => {
-          let arr = res.data.productList || [];
-          this.list = arr;
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    }
+    
   }
 };
 </script>

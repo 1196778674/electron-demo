@@ -177,5 +177,5 @@ price: {
     theadList: ['Время', 'сделки', 'Индекс цены'],
 }
 
-}
+};
 export default handbook

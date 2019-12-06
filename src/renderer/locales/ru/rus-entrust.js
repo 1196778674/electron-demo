@@ -30,5 +30,5 @@
     less: 'Шорт',
     more: 'Лонг'
   }
-}
+};
 export default entrust

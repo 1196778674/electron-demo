@@ -511,6 +511,6 @@ let reference = {
       p3: '取引例',
     }
   }
-}
+};
 export default reference
 

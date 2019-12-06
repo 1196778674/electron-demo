@@ -86,5 +86,5 @@ let regular = {
   insurance: {
     p1: '保险基金是爆仓后，爆仓单在市场委托处理后的残值管理。穿仓产生的损失将优先从保险基金中扣除。'
   }
-}
+};
 export default regular

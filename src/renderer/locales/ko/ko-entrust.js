@@ -7,7 +7,7 @@ let entrust = {
     //   ]
     // },
     {
-      name: '과거',
+      name: '과거 데이터',
       children: [
         {
           name: '거래 내역',
@@ -19,14 +19,14 @@ let entrust = {
   ],
   tradeHistory: {
     contract: '계약',
-    size: '계약 수량 (장)',
-    dealSize: '거래 수량',
-    surplus: '남은 수량',
-    dealPrice: '거래 가격',
-    price: '주문 가격 (USD)',
-    orderValue: '거래 가치 (BTC)',
+    size: '계약 수량(장)',
+    dealSize: '체결량',
+    surplus: '잔여량',
+    dealPrice: '체결가',
+    price: '주문가(USD)',
+    orderValue: '체결 가치(BTC)',
     type: '유형',
-    date: '주문 시간',
+    date: '시간',
     less: '매도',
     more: '매수'
   }

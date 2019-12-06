@@ -16,5 +16,5 @@ let wallet = {
   unReleaseAmount: '未平仓合约数',
   less: '空',
   more: '多'
-}
+};
 export default wallet

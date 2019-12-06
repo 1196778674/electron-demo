@@ -16,5 +16,5 @@
   unReleaseAmount: 'Кол-во открытых контрактов',
   less: 'шорт',
   more: 'лонг'
-}
+};
 export default wallet

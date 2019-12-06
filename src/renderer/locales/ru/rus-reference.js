@@ -511,6 +511,6 @@
       p3: 'Примеры сделок',
     }
   }
-}
+};
 export default reference
 

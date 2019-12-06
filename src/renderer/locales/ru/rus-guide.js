@@ -203,5 +203,5 @@
     tbodyList2: []
   },
 
-  }
+};
 export default guide

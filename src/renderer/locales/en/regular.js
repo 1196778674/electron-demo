@@ -88,5 +88,5 @@ let regular = {
   insurance: {
     p1: 'The insurance fund is the residual value management of the liquidation order after being executed at the market price. The debt loss will first be deducted from the insurance fund.'
   }
-}
+};
 export default regular

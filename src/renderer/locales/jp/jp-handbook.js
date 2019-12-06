@@ -177,5 +177,5 @@ let handbook = {
         theadList: ['時間', '契約', '価格インデックス'],
     }
 
-}
+};
 export default handbook

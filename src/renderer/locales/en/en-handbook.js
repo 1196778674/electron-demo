@@ -176,5 +176,5 @@ let handbook = {
         },
         theadList: ['Time', 'Contract', 'Price Index']
     }
-}
+};
 export default handbook

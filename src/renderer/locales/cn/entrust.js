@@ -30,5 +30,5 @@ let entrust = {
     less: '空',
     more: '多'
   }
-}
+};
 export default entrust

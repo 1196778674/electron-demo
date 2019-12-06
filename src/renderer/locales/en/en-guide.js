@@ -204,5 +204,5 @@ bxbt: {
 },
 
 
-}
+};
 export default guide

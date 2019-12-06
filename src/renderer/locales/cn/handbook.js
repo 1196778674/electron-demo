@@ -177,5 +177,5 @@ let handbook = {
     theadList: ['时间', '合约', '价格指数'],
   }
 
-}
+};
 export default handbook

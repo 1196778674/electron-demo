@@ -86,5 +86,5 @@ let regular = {
   insurance: {
     p1: 'オーバーレバレッジを発生する注文を清算処理してから、残ったのは保険基金に計上される。デット故の損失が優先に保険基金から引き除く。'
   }
-}
+};
 export default regular
