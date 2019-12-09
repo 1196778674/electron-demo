@@ -34,10 +34,7 @@ function createWindow() {
   mainWindow.once('ready-to-show', () => {
     mainWindow.show()
   })
-  // 屏幕最大化
-  setTimeout(() => {
-    // mainWindow.maximize();
-  }, 0);
+  
   // 禁止缩放
   const webContents = mainWindow.webContents;
   webContents.on('did-finish-load', (event) => {

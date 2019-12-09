@@ -1,5 +1,5 @@
 <template>
-  <div id="view">
+  <div id="view" :class="themes">
     <router-view id="container"></router-view>
   </div>
 </template>
@@ -13,7 +13,7 @@ export default {
   },
   data() {
     return {
-      
+      themes: 'black'
     }
   },
   watch: {

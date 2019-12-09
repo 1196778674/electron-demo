@@ -2,9 +2,11 @@
     <div class="full-header">
       <a
         :class="['logo', $i18n.locale]"
-        :href="apiConfig.mainDomain"
+        href="javascript:;"
       ></a>
-      sdf
+      <div class="market-item">
+        <!-- <k-line-title-bar></k-line-title-bar> -->
+      </div>
     </div>
 </template>
 
