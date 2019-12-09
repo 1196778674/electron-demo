@@ -5,19 +5,41 @@
         href="javascript:;"
       ></a>
       <div class="market-item">
-        <!-- <k-line-title-bar></k-line-title-bar> -->
+        <k-line-title-bar></k-line-title-bar>
       </div>
     </div>
+
 </template>
 
 <script>
 import apiConfig from '../../../assets/myConfig/api.config'
+import Cookie from '../../../assets/myConfig/cookie'
+import UserApi from '../../../assets/js/api/userApi'
+import KLineTitleBar from './KLineTitleBar'
 export default {
   name: 'fullscreen',
   data() {
     return {
       apiConfig: apiConfig
     }
+  },
+  components: {
+    KLineTitleBar,
+  },
+  computed: {
+    userInfo() {
+      return this.$store.state.user.userInfo
+    },
+  },
+  mounted () {
+    if (Cookie.getCookie('token')) {
+      UserApi.getUserInfo().then(res => {
+        this.$store.commit('user/SET_USERINFO', res.data.info)
+      })
+    };
+  },
+  methods: {
+    
   },
 }
 </script>

@@ -101,9 +101,9 @@
 </template>
 
 <script>
-  import Utils from '@/utils/utils'
-  import AccountApi from '@/api/accountApi'
-  import {dataMixin, systemMixin} from '@/mixins'
+  import Utils from '../../../assets/js/utils'
+  import AccountApi from '../../../assets/js/api/accountApi'
+  import {dataMixin, systemMixin} from '../../../mixins'
 
   export default {
   name: 'KLineTitleBar',
@@ -164,7 +164,7 @@
 </script>
 
 <style lang="less" scoped="">
-@import (reference) '../../assets/css/index';
+@import (reference) '../../../assets/css/index';
 .black {
   .themeBlack();
   .title-bar {
@@ -188,7 +188,7 @@
         .hyicon-triangle_down{
           width: 14.5px;
           height: 8.4px;
-          background: url('../../assets/images/bi_down.png') no-repeat;
+          background: url('../../../assets/images/bi_down.png') no-repeat;
           background-size: 100%;
           right: 2px;
           &::before{
@@ -293,7 +293,7 @@
         .hyicon-triangle_down{
           width: 14.5px;
           height: 8.4px;
-          background: url('../../assets/images/bi_down.png') no-repeat;
+          background: url('../../../assets/images/bi_down.png') no-repeat;
           background-size: 100%;
           right: 2px;
           &::before{

@@ -1,5 +1,5 @@
-import {AxiosInit} from '@/config/axios/config'
-import apiConfig from '../api.config'
+import {AxiosInit} from '../../config/axios/config'
+import apiConfig from '../../config/api.config'
 
 let axios = AxiosInit({
   url: apiConfig.baseURL,
